@@ -1,16 +1,25 @@
 # WingetUpgradeNotification
 
-Checks amount of programs that have available upgrades through winget.
+Checks the amount of programs that have available upgrades through winget and notifies the user to update at boot.
+
+This program is made in [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0).
 
 ## Installation
-Add latest release to startup folder.
-> C:\Users\User\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\
+### Clone the repository
+> git clone https://github.com/Spok5508/WingetUpgradeNotification
+
+### Build
+> dotnet build --config Release
+
+### Install
+Create a shortcut to ```WingetUpgradeNotification/bin/platform/WingetUpgradeNotification.exe``` and paste it in the windows startup folder
+> C:\Users\YourName\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 
 ## Usage
-### Upgrade information
-**Hover** over the icon for the amount of available upgrades.
+### Winget upgrade information
+**Hover** over the icon to see the amount of available upgrades.
 
 ### Notification behaviour
-- **Double click**: runs ```winget upgrade --all``` in user shell.
-- **Left click**: Closes tray icon without upgrading.
+- **Right click**: Closes the notification tray icon. Disregarding the prompt to update.
+- **Left click**: Runs ```winget upgrade --all``` in user shell.
 
