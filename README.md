@@ -12,7 +12,7 @@ This program is made in [.NET 8](https://dotnet.microsoft.com/en-us/download/dot
 > dotnet build --config Release
 
 ### Install
-Create a shortcut to ```WingetUpgradeNotification/bin/platform/WingetUpgradeNotification.exe``` and paste it in the windows startup folder
+Create a shortcut to ```WingetUpgradeNotification/bin/Release/platform/WingetUpgradeNotification.exe``` and paste it in the windows startup folder
 > C:\Users\YourName\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 
 ### Notification behaviour
