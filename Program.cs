@@ -37,10 +37,6 @@ namespace MyTrayIconApp
                     int count = int.Parse(match.Value.TrimEnd(" upgrades available".ToCharArray()));
                     available_upgrades = count;
                 }
-                else
-                {
-                    available_upgrades = 0;
-                }
 
                 process.WaitForExit();
             }
