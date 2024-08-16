@@ -54,42 +54,43 @@ namespace MyTrayIconApp
                 notifyIcon.Visible = true;
 
                 // Handle events (e.g., double click, right click, balloon tip)
-                notifyIcon.DoubleClick += NotifyIcon_DoubleClick;
-                notifyIcon.Click += NotifyIcon_Click;
+                notifyIcon.MouseClick += NotifyIcon_MouseClick;
 
                 // Main application loop or other logic
                 Application.Run();
 
             }
-        }
+        } 
 
-        private static void NotifyIcon_DoubleClick(object sender, EventArgs e)
+        private static void NotifyIcon_MouseClick(object sender, EventArgs e)
         {
-            // Handle double click event
-            // For example, show a main form or perform some action
-
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.FileName = "winget";
-            startInfo.Arguments = "upgrade --all";
-            startInfo.UseShellExecute = true;
-            startInfo.RedirectStandardOutput = false;
-            startInfo.RedirectStandardError = false;
-
-            using (Process process = new Process())
+            //exit application on right click, upgrade all on left click
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == MouseButtons.Right)
             {
-                process.StartInfo = startInfo;
+                Application.Exit();
+            }
+            else if (me.Button == MouseButtons.Left)
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.FileName = "winget";
+                startInfo.Arguments = "upgrade --all";
+                startInfo.UseShellExecute = true;
+                startInfo.RedirectStandardOutput = false;
+                startInfo.RedirectStandardError = false;
 
-                process.Start();
+                using (Process process = new Process())
+                {
+                    process.StartInfo = startInfo;
 
-                process.WaitForExit();
+                    process.Start();
+
+                    process.WaitForExit();
+                }
+
+                Application.Exit();
             }
 
-            Application.Exit();
-        }
-
-        private static void NotifyIcon_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }
