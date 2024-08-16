@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Text.RegularExpressions;
 using WingetUpgradeNotification.Properties;
 
-namespace MyTrayIconApp
+namespace WingetUpgradeNotification
 {
     class Program
     {
