@@ -15,11 +15,8 @@ This program is made in [.NET 8](https://dotnet.microsoft.com/en-us/download/dot
 Create a shortcut to ```WingetUpgradeNotification/bin/platform/WingetUpgradeNotification.exe``` and paste it in the windows startup folder
 > C:\Users\YourName\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 
-## Usage
-### Winget upgrade information
-**Hover** over the icon to see the amount of available upgrades.
-
 ### Notification behaviour
-- **Right click**: Closes the notification tray icon. Disregarding the prompt to update.
+- **Hover**: Displays number of available upgrades.
 - **Left click**: Runs ```winget upgrade --all``` in user shell.
+- **Right click**: Closes the notification tray icon. Disregarding the prompt to update.
 
